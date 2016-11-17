@@ -5,8 +5,16 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.1.2",
+    "csv": "^1.1.0",
     "download": "^5.0.2",
+    "got": "^6.6.3",
     "htmlparser2": "^3.9.2",
+    "longjohn": "^0.2.11",
+    "mkdirp": "^0.5.1",
+    "request": "^2.78.0",
     "xml2json": "^0.10.0"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
