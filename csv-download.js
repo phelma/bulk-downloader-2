@@ -58,9 +58,11 @@ let getTheFiles = (file, callback) => {
               let now = Date.now();
               let diff = now - start;
               let n = ++ count;
-              let avg = diff / count;
-              console.log('done', n);
-              console.log('AVERAGE TIME', avg);
+              if (n % 10 === 0){
+                let avg = diff / count;
+                console.log('done', n);
+                console.log('AVERAGE TIME', avg);
+              }
               done();
             });
         })
