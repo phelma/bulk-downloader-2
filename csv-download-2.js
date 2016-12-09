@@ -19,7 +19,7 @@ let wget = require('./wget');
 console.log('lets go');
 console.time('downloaded all');
 
-let errors = [];
+let errors = 0;
 
 let getTheFiles = (file, callback) => {
   console.log('STARTING ' + file);
@@ -46,14 +46,14 @@ let getTheFiles = (file, callback) => {
 
           wget(url, outFilename, (err) => {
               if (err){
-                errors.push(err);
+                errors ++;
               } else {
                 let now = Date.now();
                 let diff = now - start;
                 let n = ++ count;
                 if (n % 10 === 0){
                   let avg = diff / count;
-                  console.log(`Done: ${n}, Failed: ${errors.length}`);
+                  console.log(`Done: ${n}, Failed: ${errors}`);
                   console.log('AVERAGE TIME', avg);
                 }
               }
@@ -65,7 +65,7 @@ let getTheFiles = (file, callback) => {
 
       }, (err) => {
         console.timeEnd('FINISHED ' + file);
-        console.log('ERRORS: ' + errors.length);
+        console.log('ERRORS: ' + errors);
       })
 
     })
